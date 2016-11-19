@@ -65,6 +65,10 @@ public class CarroListAdapter extends
 
     }
 
+    public Carro getItem(int position){
+        return carros.get(position);
+    }
+
     @Override
     public int getItemCount() {
         return carros.size();
