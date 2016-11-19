@@ -1,6 +1,7 @@
 package com.example.rm31308.timemachine.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.rm31308.timemachine.DetalheActivity;
 import com.example.rm31308.timemachine.R;
 import com.example.rm31308.timemachine.adapter.CarroListAdapter;
 import com.example.rm31308.timemachine.api.CarroAPI;
@@ -84,14 +86,16 @@ public class CarrosFragment extends Fragment implements Callback<List<Carro>> {
             @Override
             public void onClick(View v, int position) {
 
+                Intent i = new Intent(getContext(), DetalheActivity.class);
+
             }
-        }
+        };
     }
 
     @Override
     public void onResponse(Call<List<Carro>> call, Response<List<Carro>> response) {
 
-        adapter = new CarroListAdapter(getContext(),response.body());
+        adapter = new CarroListAdapter(getContext(),response.body(),onClickListener());
         rvCarros.setAdapter(adapter);
 
 
