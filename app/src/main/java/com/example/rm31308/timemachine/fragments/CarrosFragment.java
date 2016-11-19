@@ -87,6 +87,8 @@ public class CarrosFragment extends Fragment implements Callback<List<Carro>> {
             public void onClick(View v, int position) {
 
                 Intent i = new Intent(getContext(), DetalheActivity.class);
+                i.putExtra("Carro", adapter.getItem(position));
+                startActivity(i);
 
             }
         };
